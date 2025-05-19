@@ -14,24 +14,25 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type_credit", discriminatorType = DiscriminatorType.STRING,length = 4)
+@DiscriminatorColumn(name = "type_credit",  discriminatorType = DiscriminatorType.STRING,length = 4)
 public abstract class Credit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private LocalDate dateDemande;
-    
+
     @Enumerated(EnumType.STRING)
     private StatutCredit statut;
-    
+
     private LocalDate dateAcceptation;
     private double montant;
     private int dureeRemboursement; // en mois
     private double tauxInteret;
-    
+
     @ManyToOne
     private Client client;
-    
+
     @OneToMany(mappedBy = "credit", fetch = FetchType.EAGER)
     private List<Remboursement> remboursements;
-} 
+}
