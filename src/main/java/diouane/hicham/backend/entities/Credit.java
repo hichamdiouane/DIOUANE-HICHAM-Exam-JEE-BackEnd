@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type_credit",  discriminatorType = DiscriminatorType.STRING,length = 4)
-public abstract class Credit {
+public class Credit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
