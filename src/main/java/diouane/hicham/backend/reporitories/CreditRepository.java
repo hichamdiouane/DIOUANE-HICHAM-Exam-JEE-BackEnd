@@ -10,4 +10,5 @@ import java.util.List;
 public interface CreditRepository extends JpaRepository<Credit, Long> {
     long count();
     List<Credit> findByStatut(StatutCredit statut);
+    List<Credit> findByClientId(Long clientId);
 } 
